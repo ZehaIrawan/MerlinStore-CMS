@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Admin from './components/Admin';
+import Footer from './components/Footer';
+import ManageProducts from './components/ManageProducts';
+import AdminRoutes from './components/routing/AdminRoutes';
+import setAdminToken from './components/utils/setAdminToken';
+import { loadAdmin } from './redux/actions/adminAuth';
+import store from './redux/store';
+import AdminNav from './components/AdminNav';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+if (localStorage.token) {
+  setAdminToken(localStorage.token);
 }
+
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadAdmin());
+  }, []);
+
+  return (
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Switch>
+            <Route exact path="/" component={Admin} />
+            <Route exact path="/admin" component={Admin} />
+            <AdminRoutes
+              exact
+              path="/manage-products"
+              component={ManageProducts}
+            />
+            <AdminNav />
+            <Footer />
+          </Switch>
+        </Fragment>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;
