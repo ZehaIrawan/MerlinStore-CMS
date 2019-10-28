@@ -1,4 +1,9 @@
-import { GET_PRODUCTS } from '../actions/types';
+import {
+  ADD_PRODUCT,
+  DELETE_PRODUCT,
+  EDIT_PRODUCT,
+  GET_PRODUCTS,
+} from '../actions/types';
 
 const initialState = {
   products: [],
@@ -12,6 +17,43 @@ const products = (state = initialState, action) => {
   switch (type) {
     case GET_PRODUCTS:
       return { ...state, products: payload, loading: false };
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        products: [payload, ...state.products],
+        loading: false,
+      };
+    case DELETE_PRODUCT:
+      return {
+        ...state,
+        products: state.products.filter(product => product._id !== payload),
+        loading: false,
+      };
+    case EDIT_PRODUCT:
+      console.log(payload);
+      return {
+        ...state,
+        products: state.products.map(item => {
+          // Find the item with the matching id
+
+          if (item._id === payload._id) {
+            // Return a new object
+
+            return {
+              ...item, // copy the existing item
+              title: payload.title,
+              price: payload.price,
+              description: payload.description,
+              img: payload.img,
+            };
+          }
+          // Leave every other item unchanged
+
+          return item;
+        }),
+
+        loading: false,
+      };
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../redux/actions/adminAuth';
-import Footer from './Footer';
+
 
 const AdminNav = ({ adminAuth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
@@ -38,7 +38,6 @@ const AdminNav = ({ adminAuth: { isAuthenticated, loading }, logout }) => {
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
       )}
     </nav>
-    <Footer/>
     </Fragment>
   );
 };

@@ -1,30 +1,60 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { editProduct } from '../redux/actions/product';
+import EditModal from './modals/EditModal';
+import useEditModal from './modals/useEditModal';
 
+const Product = ({ title, price, description, img, deleteProduct, id }) => {
+  const { isEditing, toggleEdit } = useEditModal();
 
-const Product = ({ title, price, description, img, }) => {
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const formData = {
-      title,
-      price,
-      description,
-      img,
-      quantity: 1,
-    };
+  const editThisProduct = () => {
+    toggleEdit();
   };
 
   return (
-    <div className="product">
-      <h2>{title}</h2>
-      <img className="product-img" src={img} alt="" />
-      <p>{description}</p>
-      <h3>${price}</h3>
-    </div>
+    <Fragment>
+      <EditModal isEditing={isEditing} hideEdit={toggleEdit} />
+      <div className="product">
+        <h2>{title}</h2>
+        <img className="product-img" src={img} alt="" />
+        <p>{description}</p>
+        <h3>${price}</h3>
+        <button
+          className="action-button"
+          type="button"
+          onClick={() => {
+            deleteProduct(id);
+          }}
+        >
+          Remove
+        </button>
+
+        <button
+          className="action-button "
+          type="button"
+          onClick={editThisProduct}
+        >
+          Edit
+        </button>
+      </div>
+    </Fragment>
   );
 };
 
+Product.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+};
 
-export default connect(null,{ })(Product);
+Product.propTypes = {
+  editProduct: PropTypes.func.isRequired,
+};
+
+export default connect(
+  null,
+  { editProduct },
+)(Product);

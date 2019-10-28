@@ -1,13 +1,13 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getProducts } from '../redux/actions/product';
+import { getProducts,deleteProduct } from '../redux/actions/product';
 import AdminNav from './AdminNav';
 import Footer from './Footer';
 import useModal from './modals/useModal';
 import Product from './Product';
-import Modal from '../components/modals/Modal';
+import Modal from './modals/Modal';
 
-const ManageProducts = ({ getProducts, loading, products }) => {
+const ManageProducts = ({ getProducts, loading, products,deleteProduct }) => {
   useEffect(() => {
     getProducts();
   }, [getProducts]);
@@ -17,6 +17,7 @@ const ManageProducts = ({ getProducts, loading, products }) => {
   if (loading) {
     return (
       <Fragment>
+         <AdminNav />
         <p>Loading ...</p>
         <Footer />
       </Fragment>
@@ -32,11 +33,13 @@ const ManageProducts = ({ getProducts, loading, products }) => {
       <div className="product-container">
         {products.products.map(product => (
           <Product
-            key={product.title}
+            key={product._id}
             title={product.title}
             img={product.img}
             description={product.description}
             price={product.price}
+            deleteProduct={deleteProduct}
+            id={product._id}
           />
         ))}
       </div>
@@ -53,6 +56,6 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   {
-    getProducts,
+    getProducts,deleteProduct
   },
 )(ManageProducts);
