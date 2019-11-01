@@ -9,9 +9,10 @@ const ProductForm = ({ addProduct }) => {
     price: '',
     description: '',
     img: '',
+    dl:''
   });
 
-  const { title, price, description, img } = formData;
+  const { title, price, description, img,dl } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -65,6 +66,17 @@ const ProductForm = ({ addProduct }) => {
           name="img"
           onChange={e => onChange(e)}
           value={img}
+          required
+        />
+      </label>
+
+      <label htmlFor="Download" id="DownloadLabel">
+        Download url:
+        <input
+          type="text"
+          name="Download"
+          onChange={e => onChange(e)}
+          value={dl}
           required
         />
       </label>

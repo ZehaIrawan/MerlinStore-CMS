@@ -4,15 +4,18 @@ import { connect } from 'react-redux';
 import { editProduct } from '../redux/actions/product';
 
 const EditProductForm = ({ product, editProduct }) => {
+  console.log(product._id);
+
+  
   const [formData, setFormData] = useState({
     title: product.title,
     price: product.price,
     description: product.description,
     img: product.img,
+    dl: product.dl,
   });
 
-
-  const { title, price, img, description } = formData;
+  const { title, price, img, description, dl } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,7 +23,7 @@ const EditProductForm = ({ product, editProduct }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    editProduct(product._id, formData);
+    editProduct(product.id, formData);
   };
 
   return (
@@ -69,6 +72,17 @@ const EditProductForm = ({ product, editProduct }) => {
         />
       </label>
 
+      <label htmlFor="Download" id="DownloadLabel">
+        Download url:
+        <input
+          type="text"
+          name="dl"
+          onChange={e => onChange(e)}
+          value={dl}
+          required
+        />
+      </label>
+
       <button className="blue-button form-button bold" type="submit">
         Submit
       </button>
@@ -81,7 +95,7 @@ EditProductForm.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  product: state.products.products[0],
+  product: state.products.products,
 });
 
 export default connect(

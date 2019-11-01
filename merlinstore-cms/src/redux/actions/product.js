@@ -11,7 +11,7 @@ import {
 // Get PRODUGET_PRODUCTS
 export const getProducts = () => async dispatch => {
   try {
-    const res = await axios.get('/api/products');
+    const res = await axios.get('/api/admin-product');
 
     dispatch({
       type: GET_PRODUCTS,

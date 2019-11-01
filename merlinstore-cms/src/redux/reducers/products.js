@@ -30,7 +30,6 @@ const products = (state = initialState, action) => {
         loading: false,
       };
     case EDIT_PRODUCT:
-      console.log(payload);
       return {
         ...state,
         products: state.products.map(item => {
@@ -45,6 +44,7 @@ const products = (state = initialState, action) => {
               price: payload.price,
               description: payload.description,
               img: payload.img,
+              dl: payload.dl,
             };
           }
           // Leave every other item unchanged
