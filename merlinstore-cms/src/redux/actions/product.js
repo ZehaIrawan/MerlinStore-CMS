@@ -5,8 +5,8 @@ import {
   DELETE_PRODUCT,
   EDIT_PRODUCT,
   GET_PRODUCTS,
-  UPDATE_PRODUCT,
   PRODUCT_ERROR,
+  UPDATE_PRODUCT,
 } from './types';
 
 // Get PRODUGET_PRODUCTS
@@ -25,7 +25,6 @@ export const getProducts = () => async dispatch => {
 
 // Add Product
 export const addProduct = formData => async dispatch => {
-  console.log(formData);
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +32,6 @@ export const addProduct = formData => async dispatch => {
   };
 
   try {
-    console.log('b');
     const res = await axios.post('/api/products', formData, config);
 
     dispatch({

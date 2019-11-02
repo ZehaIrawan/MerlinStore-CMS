@@ -70,11 +70,11 @@ const ProductForm = ({ addProduct }) => {
         />
       </label>
 
-      <label htmlFor="Download" id="DownloadLabel">
+      <label htmlFor="Download" id="dl">
         Download url:
         <input
           type="text"
-          name="Download"
+          name="dl"
           onChange={e => onChange(e)}
           value={dl}
           required
