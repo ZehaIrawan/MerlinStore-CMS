@@ -5,6 +5,7 @@ import {
   DELETE_PRODUCT,
   EDIT_PRODUCT,
   GET_PRODUCTS,
+  UPDATE_PRODUCT,
   PRODUCT_ERROR,
 } from './types';
 
@@ -69,8 +70,23 @@ export const deleteProduct = id => async dispatch => {
 };
 
 // Edit Product
+export const editProduct = formData => async dispatch => {
+  try {
+    dispatch({
+      type: EDIT_PRODUCT,
+      payload: formData,
+    });
+  } catch (err) {
+    dispatch({
+      type: PRODUCT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
 
-export const editProduct = (id, formData) => async dispatch => {
+// Update Product
+
+export const updateProduct = (id, formData) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -80,7 +96,7 @@ export const editProduct = (id, formData) => async dispatch => {
     const res = await axios.put(`/api/products/${id}`, formData, config);
 
     dispatch({
-      type: EDIT_PRODUCT,
+      type: UPDATE_PRODUCT,
       payload: res.data,
     });
 

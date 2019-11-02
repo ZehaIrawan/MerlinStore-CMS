@@ -5,9 +5,31 @@ import { editProduct } from '../redux/actions/product';
 import EditModal from './modals/EditModal';
 import useEditModal from './modals/useEditModal';
 
-const Product = ({ title, price, description, img, deleteProduct, id, dl }) => {
+const Product = ({
+  title,
+  price,
+  description,
+  img,
+  deleteProduct,
+  editProduct,
+  id,
+  dl,
+}) => {
   const { isEditing, toggleEdit } = useEditModal();
 
+  const formData = {
+    id,
+    title,
+    description,
+    img,
+    dl,
+    price,
+  };
+
+  const editThisPorduct = () => {
+    editProduct(formData);
+    toggleEdit();
+  };
 
   return (
     <Fragment>
@@ -28,11 +50,7 @@ const Product = ({ title, price, description, img, deleteProduct, id, dl }) => {
           Remove
         </button>
 
-        <button
-          className="action-button "
-          type="button"
-          onClick={toggleEdit}
-        >
+        <button className="action-button " type="button" onClick={editThisPorduct}>
           Edit
         </button>
       </div>

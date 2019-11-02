@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { editProduct } from '../redux/actions/product';
+import { updateProduct } from '../redux/actions/product';
 
-const EditProductForm = ({ product, editProduct }) => {
-  console.log(product._id);
+const EditProductForm = ({ product, updateProduct }) => {
+  console.log(product);
 
-  
   const [formData, setFormData] = useState({
     title: product.title,
     price: product.price,
@@ -22,8 +21,8 @@ const EditProductForm = ({ product, editProduct }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    editProduct(product.id, formData);
+    console.log(product.id, formData);
+    updateProduct(product.id, formData);
   };
 
   return (
@@ -91,14 +90,14 @@ const EditProductForm = ({ product, editProduct }) => {
 };
 
 EditProductForm.propTypes = {
-  editProduct: PropTypes.func.isRequired,
+  updateProduct: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  product: state.products.products,
+  product: state.products.product[0],
 });
 
 export default connect(
   mapStateToProps,
-  { editProduct },
+  { updateProduct },
 )(EditProductForm);

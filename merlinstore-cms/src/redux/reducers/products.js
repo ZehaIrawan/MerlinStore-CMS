@@ -3,6 +3,7 @@ import {
   DELETE_PRODUCT,
   EDIT_PRODUCT,
   GET_PRODUCTS,
+  UPDATE_PRODUCT,
 } from '../actions/types';
 
 const initialState = {
@@ -30,6 +31,12 @@ const products = (state = initialState, action) => {
         loading: false,
       };
     case EDIT_PRODUCT:
+      return {
+        ...state,
+        product: [payload],
+        loading: false,
+      };
+    case UPDATE_PRODUCT:
       return {
         ...state,
         products: state.products.map(item => {
