@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { updateProduct } from '../redux/actions/product';
 
 const EditProductForm = ({ product, updateProduct }) => {
-  console.log(product);
 
   const [formData, setFormData] = useState({
     title: product.title,
@@ -21,12 +20,11 @@ const EditProductForm = ({ product, updateProduct }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(product.id, formData);
     updateProduct(product.id, formData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="popForm" onSubmit={handleSubmit}>
       <label htmlFor="title" id="titleLabel">
         Title:
         <input
@@ -49,6 +47,7 @@ const EditProductForm = ({ product, updateProduct }) => {
           required
         />
       </label>
+      <br />
       <label htmlFor="description" id="descriptionLabel">
         Description:
         <input
@@ -59,7 +58,7 @@ const EditProductForm = ({ product, updateProduct }) => {
           required
         />
       </label>
-
+      <br />
       <label htmlFor="img" id="imgLabel">
         Img url:
         <input
@@ -70,7 +69,7 @@ const EditProductForm = ({ product, updateProduct }) => {
           required
         />
       </label>
-
+      <br />
       <label htmlFor="Download" id="DownloadLabel">
         Download url:
         <input
@@ -81,8 +80,9 @@ const EditProductForm = ({ product, updateProduct }) => {
           required
         />
       </label>
-
-      <button className="blue-button form-button bold" type="submit">
+      <br />
+      <br />
+      <button className="theme-button" type="submit">
         Submit
       </button>
     </form>

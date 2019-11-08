@@ -27,7 +27,9 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
   return (
     <Fragment>
       <AdminNav />
-      <button onClick={toggle}>Add Book</button>
+      <button className="theme-button" onClick={toggle}>
+        Add Book
+      </button>
       <Modal isShowing={isShowing} hide={toggle} />
 
       <div className="product-container">

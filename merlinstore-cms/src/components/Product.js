@@ -41,7 +41,7 @@ const Product = ({
         <h3>${price}</h3>
         <h2>{dl}</h2>
         <button
-          className="action-button"
+          className="theme-button"
           type="button"
           onClick={() => {
             deleteProduct(id);
@@ -50,7 +50,11 @@ const Product = ({
           Remove
         </button>
 
-        <button className="action-button " type="button" onClick={editThisPorduct}>
+        <button
+          className="theme-button"
+          type="button"
+          onClick={editThisPorduct}
+        >
           Edit
         </button>
       </div>

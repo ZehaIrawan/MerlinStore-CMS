@@ -25,7 +25,7 @@ const ProductForm = ({ addProduct }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="popForm" onSubmit={handleSubmit}>
       <label htmlFor="title" id="titleLabel">
         Title:
         <input
@@ -81,7 +81,7 @@ const ProductForm = ({ addProduct }) => {
         />
       </label>
 
-      <button className="blue-button form-button bold" type="submit">
+      <button className="theme-button" type="submit">
         Add Product
       </button>
     </form>

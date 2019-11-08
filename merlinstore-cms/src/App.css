@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --theme-color: #12883d;
+}
+
 body {
   font-family: 'Roboto Slab', serif;
   background-color: #f5f6fa;
@@ -111,7 +115,6 @@ button {
 
 .product {
   width: 260px;
-  border: 4px solid tomato;
 }
 
 .product * {
@@ -186,8 +189,37 @@ footer {
   margin-left: 350px;
   height: 40px;
   width: 40px;
+  color: red;
+  font-size: 30px;
+  border:none;
 }
 
 nav a h2 {
   padding: 20px;
+}
+
+.popForm {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.theme-button {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #fff;
+  min-height: 45px;
+  min-width: 173px;
+  border-radius: 3px;
+  background-color: var(--theme-color);
+  text-transform: uppercase;
+  border: none;
+  padding: 10px 22px;
+  margin-left: 10px;
+  display: inline-block;
 }

@@ -11,6 +11,7 @@ import { loadAdmin } from './redux/actions/adminAuth';
 import store from './redux/store';
 import AdminNav from './components/AdminNav';
 
+
 if (localStorage.adminToken) {
   setAdminToken(localStorage.adminToken);
 }
