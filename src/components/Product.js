@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import { editProduct } from '../redux/actions/product';
-import EditModal from './modals/EditModal';
-import useEditModal from './modals/useEditModal';
+import PropTypes from "prop-types";
+import React, { Fragment } from "react";
+import { connect } from "react-redux";
+import { editProduct } from "../redux/actions/product";
+import EditModal from "./modals/EditModal";
+import useEditModal from "./modals/useEditModal";
 
 const Product = ({
   title,
@@ -13,7 +13,7 @@ const Product = ({
   deleteProduct,
   editProduct,
   id,
-  dl,
+  dl
 }) => {
   const { isEditing, toggleEdit } = useEditModal();
 
@@ -23,7 +23,7 @@ const Product = ({
     description,
     img,
     dl,
-    price,
+    price
   };
 
   const editThisPorduct = () => {
@@ -39,7 +39,7 @@ const Product = ({
         <img className="product-img" src={img} alt="" />
         <p>{description}</p>
         <h3>${price}</h3>
-        <h2>{dl}</h2>
+        <p>{dl}</p>
         <button
           className="theme-button"
           type="button"
@@ -68,14 +68,11 @@ Product.propTypes = {
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  dl: PropTypes.string.isRequired,
+  dl: PropTypes.string.isRequired
 };
 
 Product.propTypes = {
-  editProduct: PropTypes.func.isRequired,
+  editProduct: PropTypes.func.isRequired
 };
 
-export default connect(
-  null,
-  { editProduct },
-)(Product);
+export default connect(null, { editProduct })(Product);

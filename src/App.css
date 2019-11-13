@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   background-color: #f5f6fa;
   padding-top: 100px;
   padding-right: 100px;
@@ -31,7 +31,7 @@ nav a h2,
 nav a h1 {
   color: #12883d;
   padding: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 30px;
   font-weight: bold;
   font-style: normal;
@@ -54,10 +54,10 @@ nav a {
   color: #888;
 }
 
-.form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
 .form select,
 .form textarea {
   display: block;
@@ -68,7 +68,7 @@ nav a {
   border: 1px solid #ccc;
 }
 
-.form input[type='submit'],
+.form input[type="submit"],
 button {
   font: inherit;
 }
@@ -123,7 +123,7 @@ button {
 
 .product-img {
   width: 250px;
-  height: 200px;
+  height: 350px;
 }
 
 .cart {
@@ -191,7 +191,7 @@ footer {
   width: 40px;
   color: red;
   font-size: 30px;
-  border:none;
+  border: none;
 }
 
 nav a h2 {
