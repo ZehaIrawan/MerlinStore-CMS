@@ -3,14 +3,14 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Admin from './components/Admin';
+import AdminNav from './components/AdminNav';
 import Footer from './components/Footer';
+import Alert from './components/layout/Alert';
 import ManageProducts from './components/ManageProducts';
 import AdminRoutes from './components/routing/AdminRoutes';
 import setAdminToken from './components/utils/setAdminToken';
 import { loadAdmin } from './redux/actions/adminAuth';
 import store from './redux/store';
-import AdminNav from './components/AdminNav';
-
 
 if (localStorage.adminToken) {
   setAdminToken(localStorage.adminToken);
@@ -25,6 +25,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
+          <Alert />
           <Switch>
             <Route exact path="/" component={Admin} />
             <Route exact path="/admin" component={Admin} />

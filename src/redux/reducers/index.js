@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
+import adminAuth from './adminAuth';
+import alert from './alert';
 import products from './products';
-import adminAuth from './adminAuth'
 
 export default combineReducers({
   products,
-  adminAuth
+  adminAuth,
+  alert,
 });
