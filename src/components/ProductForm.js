@@ -12,6 +12,8 @@ const ProductForm = ({ addProduct }) => {
     dl:''
   });
 
+
+
   const { title, price, description, img,dl } = formData;
 
   const onChange = e => {

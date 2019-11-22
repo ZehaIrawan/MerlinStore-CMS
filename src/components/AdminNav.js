@@ -31,7 +31,7 @@ const AdminNav = ({ adminAuth: { isAuthenticated, loading }, logout }) => {
     <nav>
       <h1>
         <Link to="/">
-          <h1>MerlinStore</h1>
+          <h1>MerlinStore CMS</h1>
         </Link>
       </h1>
       {!loading && (

@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   background-color: #f5f6fa;
   padding-top: 100px;
   padding-right: 100px;
@@ -31,7 +31,7 @@ nav a h2,
 nav a h1 {
   color: #12883d;
   padding: 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   font-weight: bold;
   font-style: normal;
@@ -54,10 +54,10 @@ nav a {
   color: #888;
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
 .form select,
 .form textarea {
   display: block;
@@ -68,7 +68,7 @@ nav a {
   border: 1px solid #ccc;
 }
 
-.form input[type="submit"],
+.form input[type='submit'],
 button {
   font: inherit;
 }
@@ -109,12 +109,13 @@ button {
 }
 
 .product-container {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 }
 
 .product {
-  width: 260px;
+  display: flex;
+  border: 1px solid tomato;
 }
 
 .product * {
@@ -122,8 +123,8 @@ button {
 }
 
 .product-img {
-  width: 250px;
-  height: 350px;
+  width: 100px;
+  height: 200px;
 }
 
 .cart {
@@ -208,6 +209,12 @@ input {
   margin-bottom: 20px;
 }
 
+.in-button {
+  border: none;
+  display: inline-block;
+  background-color: #f5f6fa;
+}
+
 .theme-button {
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -222,4 +229,10 @@ input {
   padding: 10px 22px;
   margin-left: 10px;
   display: inline-block;
+}
+
+.edit_delete_icon {
+  color: #000;
+  z-index: 999;
+  height: 200px;
 }

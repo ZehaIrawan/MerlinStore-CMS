@@ -1,9 +1,11 @@
-import PropTypes from "prop-types";
-import React, { Fragment } from "react";
-import { connect } from "react-redux";
-import { editProduct } from "../redux/actions/product";
-import EditModal from "./modals/EditModal";
-import useEditModal from "./modals/useEditModal";
+import PropTypes from 'prop-types';
+import React, { Fragment } from 'react';
+import { FaEdit } from 'react-icons/fa';
+import { GoX } from 'react-icons/go';
+import { connect } from 'react-redux';
+import { editProduct } from '../redux/actions/product';
+import EditModal from './modals/EditModal';
+import useEditModal from './modals/useEditModal';
 
 const Product = ({
   title,
@@ -13,7 +15,7 @@ const Product = ({
   deleteProduct,
   editProduct,
   id,
-  dl
+  dl,
 }) => {
   const { isEditing, toggleEdit } = useEditModal();
 
@@ -23,7 +25,7 @@ const Product = ({
     description,
     img,
     dl,
-    price
+    price,
   };
 
   const editThisPorduct = () => {
@@ -35,27 +37,23 @@ const Product = ({
     <Fragment>
       <EditModal isEditing={isEditing} hideEdit={toggleEdit} />
       <div className="product">
-        <h2>{title}</h2>
         <img className="product-img" src={img} alt="" />
-        <p>{description}</p>
+        <p>{title}</p>
+        <p>`{description.substring(0, 100)}...`</p>
         <h3>${price}</h3>
-        <p>{dl}</p>
+        <p>{dl.substring(0, 25)}...</p>
         <button
-          className="theme-button"
+          className="in-button"
           type="button"
           onClick={() => {
             deleteProduct(id);
           }}
         >
-          Remove
+          <GoX className="edit_delete_icon" />
         </button>
 
-        <button
-          className="theme-button"
-          type="button"
-          onClick={editThisPorduct}
-        >
-          Edit
+        <button className="in-button" type="button" onClick={editThisPorduct}>
+          <FaEdit className="edit_delete_icon" />
         </button>
       </div>
     </Fragment>
@@ -68,11 +66,11 @@ Product.propTypes = {
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  dl: PropTypes.string.isRequired
+  dl: PropTypes.string.isRequired,
 };
 
 Product.propTypes = {
-  editProduct: PropTypes.func.isRequired
+  editProduct: PropTypes.func.isRequired,
 };
 
 export default connect(null, { editProduct })(Product);

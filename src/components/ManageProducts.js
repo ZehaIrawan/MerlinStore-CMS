@@ -28,11 +28,20 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
     <Fragment>
       <AdminNav />
       <button className="theme-button" onClick={toggle}>
-        Add Book
+        +Add Product
       </button>
       <Modal isShowing={isShowing} hide={toggle} />
 
       <div className="product-container">
+      <Product
+            key={12}
+            title={'Title'}
+            img={'Image'}
+            description={'Description'}
+            price={'Price'}
+            deleteProduct={deleteProduct}
+            dl={'Download Link'}
+          />
         {products.products.map(product => (
           <Product
             key={product._id}
@@ -56,10 +65,7 @@ const mapStateToProps = state => ({
   loading: state.products.loading,
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    getProducts,
-    deleteProduct,
-  },
-)(ManageProducts);
+export default connect(mapStateToProps, {
+  getProducts,
+  deleteProduct,
+})(ManageProducts);

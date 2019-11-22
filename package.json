@@ -7,6 +7,7 @@
     "moment": "^2.24.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-icons": "^3.8.0",
     "react-moment": "^0.9.6",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
@@ -36,5 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://obscure-bayou-46339.herokuapp.com/"
 }
