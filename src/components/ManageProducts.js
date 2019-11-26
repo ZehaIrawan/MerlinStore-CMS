@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Modal from './modals/Modal';
 import useModal from './modals/useModal';
 import Product from './Product';
+import { Sidebar } from './Sidebar';
 
 const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
   useEffect(() => {
@@ -25,15 +26,18 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
   }
 
   return (
-    <Fragment>
-      <AdminNav />
-      <button className="theme-button" onClick={toggle}>
-        +Add Product
-      </button>
-      <Modal isShowing={isShowing} hide={toggle} />
+    <div className="container">
+      <Sidebar />
+      <div className="right-side">
+        <AdminNav />
 
-      <div className="product-container">
-      <Product
+        <button className="theme-button" onClick={toggle}>
+          +Add Product
+        </button>
+        <Modal isShowing={isShowing} hide={toggle} />
+
+        <div className="product-container">
+          <Product
             key={12}
             title={'Title'}
             img={'Image'}
@@ -42,21 +46,22 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
             deleteProduct={deleteProduct}
             dl={'Download Link'}
           />
-        {products.products.map(product => (
-          <Product
-            key={product._id}
-            title={product.title}
-            img={product.img}
-            description={product.description}
-            price={product.price}
-            deleteProduct={deleteProduct}
-            id={product._id}
-            dl={product.dl}
-          />
-        ))}
+          {products.products.map(product => (
+            <Product
+              key={product._id}
+              title={product.title}
+              img={product.img}
+              description={product.description}
+              price={product.price}
+              deleteProduct={deleteProduct}
+              id={product._id}
+              dl={product.dl}
+            />
+          ))}
+        </div>
       </div>
       <Footer />
-    </Fragment>
+    </div>
   );
 };
 

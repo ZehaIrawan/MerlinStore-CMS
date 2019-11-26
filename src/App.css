@@ -228,7 +228,6 @@ input {
   border: none;
   padding: 10px 22px;
   margin-left: 10px;
-  display: inline-block;
 }
 
 .edit_delete_icon {
@@ -301,4 +300,21 @@ input {
   background: #fff;
   color: #333;
   border: #ccc solid 1px;
+}
+
+.right-side{
+  width: 80%;
+}
+
+.sidebar {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, #716dff, #a47dff);
+  padding: 40px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
 }
