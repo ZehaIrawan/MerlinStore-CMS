@@ -5,6 +5,7 @@ import './App.css';
 import Admin from './components/Admin';
 import AdminNav from './components/AdminNav';
 import Footer from './components/Footer';
+import {Messages} from './components/Messages'
 import Alert from './components/layout/Alert';
 import ManageProducts from './components/ManageProducts';
 import AdminRoutes from './components/routing/AdminRoutes';
@@ -34,6 +35,9 @@ const App = () => {
               path="/manage-products"
               component={ManageProducts}
             />
+            <AdminRoutes    exact
+              path="/msg"
+              component={Messages}/>
             <AdminNav />
             <Footer />
           </Switch>
