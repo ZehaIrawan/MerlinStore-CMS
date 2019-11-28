@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Admin from './components/Admin';
 import AdminNav from './components/AdminNav';
+import { Dashboard } from './components/Dashboard';
 import Footer from './components/Footer';
-import {Messages} from './components/Messages'
 import Alert from './components/layout/Alert';
 import ManageProducts from './components/ManageProducts';
+import { Messages } from './components/Messages';
+import { Payment } from './components/Payment';
 import AdminRoutes from './components/routing/AdminRoutes';
 import setAdminToken from './components/utils/setAdminToken';
 import { loadAdmin } from './redux/actions/adminAuth';
@@ -30,14 +32,14 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Admin} />
             <Route exact path="/admin" component={Admin} />
+            <AdminRoutes exact path="/dashboard" component={Dashboard} />
+            <AdminRoutes exact path="/payment" component={Payment} />
             <AdminRoutes
               exact
               path="/manage-products"
               component={ManageProducts}
             />
-            <AdminRoutes    exact
-              path="/msg"
-              component={Messages}/>
+            <AdminRoutes exact path="/msg" component={Messages} />
             <AdminNav />
             <Footer />
           </Switch>

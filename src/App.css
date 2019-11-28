@@ -8,12 +8,12 @@
   --theme-color: #12883d;
 }
 
-body {
+html,
+body,
+#root {
   font-family: 'Roboto Slab', serif;
   background-color: #f5f6fa;
-  padding-top: 100px;
-  padding-right: 100px;
-  padding-left: 100px;
+  height: 100%;
 }
 
 nav {
@@ -159,6 +159,9 @@ footer {
   height: 15vh;
   text-align: center;
   line-height: 15vh;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .total {
@@ -302,8 +305,15 @@ input {
   border: #ccc solid 1px;
 }
 
-.right-side{
-  width: 80%;
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
 }
 
 .sidebar {
@@ -312,9 +322,4 @@ input {
   flex-direction: column;
   background-image: linear-gradient(to bottom, #716dff, #a47dff);
   padding: 40px;
-}
-
-.container {
-  display: flex;
-  width: 100%;
 }

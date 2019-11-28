@@ -18,9 +18,15 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
   if (loading) {
     return (
       <Fragment>
-        <AdminNav />
-        <p>Loading ...</p>
-        <Footer />
+        <div className="container">
+          <Sidebar />
+
+          <div className="content">
+            <AdminNav />
+            <p>Loading ...</p>
+            <Footer />
+          </div>
+        </div>
       </Fragment>
     );
   }
@@ -28,7 +34,7 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
   return (
     <div className="container">
       <Sidebar />
-      <div className="right-side">
+      <div className="content">
         <AdminNav />
 
         <button className="theme-button" onClick={toggle}>
@@ -59,8 +65,8 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
             />
           ))}
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
