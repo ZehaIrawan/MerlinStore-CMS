@@ -10,7 +10,10 @@ export const Payment = () => {
 
       <div className="content">
         <AdminNav />
-        <h2>Payment</h2>
+        <div className="content-wrap">
+          <h2>Payment</h2>
+        </div>
+
         <Footer />
       </div>
     </div>
