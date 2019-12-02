@@ -6,7 +6,6 @@ import Footer from './Footer';
 import Modal from './modals/Modal';
 import useModal from './modals/useModal';
 import Product from './Product';
-import { Sidebar } from './Sidebar';
 
 const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
   useEffect(() => {
@@ -18,56 +17,36 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
   if (loading) {
     return (
       <Fragment>
-        <div className="container">
-          <Sidebar />
-
-          <div className="content">
-            <AdminNav />
-            <p>Loading ...</p>
-            <Footer />
-          </div>
-        </div>
+        <AdminNav />
+        <p>Loading ...</p>
+        <Footer />
       </Fragment>
     );
   }
 
   return (
-    <div className="container">
-      <Sidebar />
-      <div className="content">
-        <AdminNav />
+    <Fragment>
+      <AdminNav />
+      <button className="theme-button" onClick={toggle}>
+        +Add Product
+      </button>
+      <Modal isShowing={isShowing} hide={toggle} />
 
-        <button className="theme-button" onClick={toggle}>
-          +Add Product
-        </button>
-        <Modal isShowing={isShowing} hide={toggle} />
-
-        <div className="product-container">
+      <div className="product-container">
           <Product
-            key={12}
-            title={'Title'}
-            img={'Image'}
-            description={'Description'}
-            price={'Price'}
-            deleteProduct={deleteProduct}
-            dl={'Download Link'}
+            data={products.products}
+            // key={product._id}
+            // title={product.title}
+            // img={product.img}
+            // description={product.description}
+            // price={product.price}
+            // deleteProduct={deleteProduct}
+            // id={product._id}
+            // dl={product.dl}
           />
-          {products.products.map(product => (
-            <Product
-              key={product._id}
-              title={product.title}
-              img={product.img}
-              description={product.description}
-              price={product.price}
-              deleteProduct={deleteProduct}
-              id={product._id}
-              dl={product.dl}
-            />
-          ))}
-        </div>
-        <Footer />
       </div>
-    </div>
+      <Footer />
+    </Fragment>
   );
 };
 
