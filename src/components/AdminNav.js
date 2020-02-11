@@ -7,15 +7,9 @@ import { logout } from '../redux/actions/adminAuth';
 
 const AdminNav = ({ adminAuth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <Fragment>
-      <Link to="/manage-products">
-        <h2>Products</h2>
-      </Link>
-
       <Link to="/logout">
         <h2 onClick={logout}>Logout</h2>
       </Link>
-    </Fragment>
   );
 
   const guestLinks = (

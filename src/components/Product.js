@@ -1,3 +1,5 @@
+import { Table } from 'antd';
+import 'antd/dist/antd.css';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { FaEdit } from 'react-icons/fa';
@@ -16,6 +18,7 @@ const Product = ({
   editProduct,
   id,
   dl,
+  data,
 }) => {
   const { isEditing, toggleEdit } = useEditModal();
 
@@ -33,10 +36,67 @@ const Product = ({
     toggleEdit();
   };
 
+  const columns = [
+    {
+      title: 'Image',
+      dataIndex: 'img',
+      key: 'img',
+      render: img => <img src={img} class="product-img" alt="t" />,
+    },
+    {
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'title',
+    },
+
+    {
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
+    },
+    {
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
+    },
+    {
+      title: 'Download Link',
+      dataIndex: 'dl',
+      key: 'dl',
+    },
+    {
+      title: 'Edit',
+      dataIndex: 'edit',
+      key: 'edit',
+      render: () => (
+        <button className="in-button" type="button" onClick={editThisPorduct}>
+          <FaEdit className="edit_delete_icon" />
+        </button>
+      ),
+    },
+    {
+      title: 'Delete',
+      dataIndex: 'delete',
+      key: 'delete',
+      render: () => (
+        <button
+          className="in-button"
+          type="button"
+          onClick={() => {
+            deleteProduct(id);
+          }}
+        >
+          <GoX className="edit_delete_icon" />
+        </button>
+      ),
+    },
+  ];
+
   return (
     <Fragment>
+      <Table dataSource={data} columns={columns} />;
       <EditModal isEditing={isEditing} hideEdit={toggleEdit} />
-      <div className="product">
+      {/* <div className="product">
         <img className="product-img" src={img} alt="" />
         <p>{title}</p>
         <p>`{description.substring(0, 100)}...`</p>
@@ -55,7 +115,7 @@ const Product = ({
         <button className="in-button" type="button" onClick={editThisPorduct}>
           <FaEdit className="edit_delete_icon" />
         </button>
-      </div>
+      </div> */}
     </Fragment>
   );
 };

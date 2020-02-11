@@ -33,27 +33,17 @@ const ManageProducts = ({ getProducts, loading, products, deleteProduct }) => {
       <Modal isShowing={isShowing} hide={toggle} />
 
       <div className="product-container">
-      <Product
-            key={12}
-            title={'Title'}
-            img={'Image'}
-            description={'Description'}
-            price={'Price'}
-            deleteProduct={deleteProduct}
-            dl={'Download Link'}
-          />
-        {products.products.map(product => (
           <Product
-            key={product._id}
-            title={product.title}
-            img={product.img}
-            description={product.description}
-            price={product.price}
-            deleteProduct={deleteProduct}
-            id={product._id}
-            dl={product.dl}
+            data={products.products}
+            // key={product._id}
+            // title={product.title}
+            // img={product.img}
+            // description={product.description}
+            // price={product.price}
+            // deleteProduct={deleteProduct}
+            // id={product._id}
+            // dl={product.dl}
           />
-        ))}
       </div>
       <Footer />
     </Fragment>
